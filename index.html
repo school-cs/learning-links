@@ -2,14 +2,28 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>الصف الرابع الابتدائي - مادة المهارات الرقمية - العمل على الارقام </title>
 
 <style>
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.footer{
+  margin-top:20px;
+  font-size:11px;
+  color:#888;
+  text-align:center;
+}
 body{
   background:#eef3ff;
   font-family:Tahoma;
   padding:20px;
-  text-align:center;
+  padding-bottom:50px; /* ✅ مساحة للتذييل الثابت */
 }
 
 .box{
@@ -75,20 +89,134 @@ button{
   direction:ltr;           /* الصيغة من اليسار لليمين */
   box-sizing:border-box;   /* ✅ يمنع التمدد خارج الصفحة */
 }
+@media (max-width: 600px){
+  h1, h2, h3{
+    font-size: 18px;
+  }
 
+  button{
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .container{
+    padding: 10px;
+  }
+}
 #msg{font-weight:bold;margin-top:8px}
 .success{color:green}
 .error{color:red}
+.footer{
+  position: fixed;
+  bottom: 8px;
+  width: 100%;
+  font-size:11px;
+  color:#888;
+  text-align:center;
+}
+
+h3{
+  text-align: center;
+}
+
+#school,
+#student{
+  display: block;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+#toolbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.box{
+  text-align: center;
+}
+
+.note{
+  text-align: right;
+}
+
+/* حقل إدخال مع أيقونة */
+
+
+/* حقل إدخال مع أيقونة – RTL */
+.input-group{
+  display: flex;
+  flex-direction: row;     /* ✅ نفس ترتيب HTML */
+  align-items: center;
+  max-width: 420px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  direction: rtl;          /* ✅ دعم العربية */
+}
+
+.input-group .icon{
+  padding: 8px 12px;
+  background: #eef3ff;
+  border-right: 1px solid #ccc;  /* ✅ بدل border-left */
+  font-size: 16px;
+}
+
+.input-group input{
+  border: none;
+  padding: 10px;
+  flex: 1;
+  font-size: 14px;
+  outline: none;
+  text-align: right;       /* ✅ الكتابة من اليمين */
+}
+
+.input-group input{
+  border: none;
+  padding: 10px;
+  flex: 1;
+  font-size: 14px;
+  outline: none;
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="container">
+  <!-- كل محتوى الصفحة هنا -->
+
 <div class="box">
 <h3>📘 المهارات الرقمية  – العمل على الارقام </h3>
+<!-- اسم المدرسة -->
+<div class="input-group">
+  <span class="icon">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="#555">
+      <path d="M12 3L1 9l11 6 
+               9-4.91V17h2V9L12 3zm0 7.2L4.24 9 12 
+               5.8 19.76 9 12 10.2zM11 12.75L3 
+               8.53V14l8 4.35 8-4.35V8.53l-8 
+               4.22z"/>
+    </svg>
+  </span>
+  <input id="school" placeholder="اسم المدرسة">
+</div>
+<div class="input-group">
+  <span class="icon">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="#555">
+      <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 
+               2.4 7.2 4.5 7.2 7.2 9.3 12 12 
+               12zm0 2.4c-3.2 0-9.6 1.6-9.6 
+               4.8V22h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+    </svg>
+  </span>
+  <input id="student" placeholder="اسم الطالب / الطالبة">
+</div>
 
-🏫 <input id="school" placeholder="اسم المدرسة"><br><br>
-👤 <input id="student" placeholder="اسم الطالب / الطالبة"><br><br>
+
 
 <!-- شريط الصيغة -->
 <div class="fx">
@@ -300,6 +428,9 @@ function closeCert(){
   document.getElementById("cert").style.display = "none";
 }
 </script>
-
+</div>
+<footer class="footer">
+  school-cs © 2026
+</footer>
 </body>
 </html>
